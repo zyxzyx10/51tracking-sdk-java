@@ -6,6 +6,10 @@ group 'com.51tracking.gradle.example'
 version '1.0-SNAPSHOT'
 
 repositories {
+    maven {
+        url 'https://maven.aliyun.com/repository/public/'
+    }
+    mavenLocal()
     mavenCentral()
 }
 
