@@ -6,7 +6,6 @@ group 'com.51tracking.gradle.example'
 version '1.0-SNAPSHOT'
 
 repositories {
-    mavenLocal() // 本地存储库
     mavenCentral()
 }
 
