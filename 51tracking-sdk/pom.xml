@@ -6,7 +6,7 @@
 
   <groupId>io.github.51tracking</groupId>
   <artifactId>51tracking-sdk-java</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 
   <name>51tracking</name>
   <description>The Java SDK of 51Tracking API</description>
