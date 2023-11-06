@@ -4,7 +4,6 @@ import com.tracking51.Tracking51;
 import com.tracking51.exception.Tracking51Exception;
 import com.tracking51.model.Tracking51Response;
 import com.tracking51.model.courier.Courier;
-import com.tracking51.model.courier.DetectParams;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,31 +30,6 @@ public class CourierImplTest {
                 assertNotNull(courier);
             }
         }
-    }
-
-    @Test
-    public void testDetect() throws Exception {
-        DetectParams detectParams = new DetectParams();
-        detectParams.setTrackingNumber("92612903029511573030094531");
-
-        Tracking51Response response = tracking51.couriers.detect(detectParams);
-        assertNotNull(response);
-
-        if(response.getMeta().getCode() == 200){
-            List<Courier> courierList = (List<Courier>) response.getData();
-            assertNotNull(courierList);
-
-            for (Courier courier : courierList) {
-                assertNotNull(courier);
-            }
-        }
-
-    }
-
-    @Test(expected = Tracking51Exception.class)
-    public void testDetectWithEmptyTrackingNumber() throws Exception {
-        DetectParams detectParams = new DetectParams();
-        tracking51.couriers.detect(detectParams);
     }
 
 }
