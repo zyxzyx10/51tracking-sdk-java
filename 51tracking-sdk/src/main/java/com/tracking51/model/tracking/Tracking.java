@@ -23,6 +23,9 @@ public class Tracking {
     @JsonProperty("order_date")
     private String orderDate;
 
+    @JsonProperty("shipping_date")
+    private String shippingDate;
+
     @JsonProperty("created_at")
     private String createdAt;
 

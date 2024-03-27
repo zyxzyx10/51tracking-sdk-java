@@ -39,6 +39,9 @@ public class UpdateTrackingParams {
     @JsonProperty("order_date")
     private String orderDate;
 
+    @JsonProperty("shipping_date")
+    private String shippingDate;
+
     @JsonProperty("tracking_courier_account")
     private String trackingCourierAccount;
 

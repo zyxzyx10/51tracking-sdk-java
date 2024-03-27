@@ -26,6 +26,9 @@ public class UpdateTracking {
     @JsonProperty("order_date")
     private String orderDate;
 
+    @JsonProperty("shipping_date")
+    private String shippingDate;
+
     @JsonProperty("order_id")
     private String orderId;
 
