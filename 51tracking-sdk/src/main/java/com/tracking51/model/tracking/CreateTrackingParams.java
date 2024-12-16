@@ -30,6 +30,9 @@ public class CreateTrackingParams {
     @JsonProperty("customer_sms")
     private String customerSms;
 
+    @JsonProperty("recipient_postcode")
+    private String recipientPostcode;
+
     @JsonProperty("title")
     private String title;
 

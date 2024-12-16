@@ -89,6 +89,9 @@ public class Tracking {
     @JsonProperty("order_id")
     private String orderId;
 
+    @JsonProperty("recipient_postcode")
+    private String recipientPostcode;
+
     @JsonProperty("title")
     private String title;
 

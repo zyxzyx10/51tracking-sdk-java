@@ -27,14 +27,14 @@ Contact: <service@51tracking.org>
 <dependency>
    <groupId>io.github.51tracking</groupId>
    <artifactId>51tracking-sdk-java</artifactId>
-   <version>1.0.2</version>
+   <version>1.0.3</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```
-implementation "io.github.51tracking:51tracking-sdk-java:1.0.2"
+implementation "io.github.51tracking:51tracking-sdk-java:1.0.3"
 ```
 
 

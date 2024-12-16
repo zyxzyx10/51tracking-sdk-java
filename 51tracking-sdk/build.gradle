@@ -21,7 +21,7 @@ dependencies {
 }
 
 group = 'io.github.51tracking'
-version = '1.0.0'
+version = '1.0.3'
 description = '51tracking-sdk-java'
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 

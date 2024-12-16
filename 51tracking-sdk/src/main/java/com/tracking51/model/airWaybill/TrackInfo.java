@@ -32,4 +32,10 @@ public class TrackInfo {
     @JsonProperty("weight")
     private String weight;
 
+    @JsonProperty("checkpoint_status")
+    private String checkpointStatus;
+
+    @JsonProperty("checkpoint_substatus")
+    private String checkpointSubstatus;
+
 }
