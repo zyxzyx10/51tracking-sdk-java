@@ -14,7 +14,7 @@ public class TrackingResultExample {
 
     public static void main(String[] args) {
          try {
-            String apiKey = "you api key";
+            String apiKey = "b6ddqpp0-4x36-npl9-3pmj-s7kcr7nsxft0";
             Tracking51 tracking51 = new Tracking51(apiKey);
 
             GetTrackingResultsParams trackingParams = new GetTrackingResultsParams();
