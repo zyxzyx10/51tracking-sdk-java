@@ -1,97 +1,21 @@
 package com.tracking51.maven.example.airWaybill;
 
-import com.tracking51.Tracking51;
-import com.tracking51.exception.Tracking51Exception;
-import com.tracking51.model.Tracking51Response;
-import com.tracking51.model.airWaybill.AirWaybill;
-import com.tracking51.model.airWaybill.AirWaybillParams;
 import lombok.SneakyThrows;
 
 import java.awt.*;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
-import java.util.Arrays;
+import java.net.URISyntaxException;
+
 
 public class AwbExample {
+    int waitingTime = 5000;
 
     @SneakyThrows
     public static void main(String[] args) {
-        String csvFile = "output.csv";
-        FileWriter writer = new FileWriter(csvFile);
-        // 写入表头
-        writer.append("tracking number,airline,flight number,from,departure time,arrive,arrive time,status,weight,piece,track url\n");
-
-        String apiKey = "b6ddqpp0-4x36-npl9-3pmj-s7kcr7nsxft0";
-        Tracking51 tracking51 = new Tracking51(apiKey);
-        AirWaybillParams airWaybillParams = new AirWaybillParams();
-
-//        long tracking = 93193085L;//4月例子
-//        long tracking = 93193000L;//4月
-//        long tracking = 93192724L;//3月例子
-        long tracking = 93192800L;//3月
-//        for (int i = 0; i < 20; i++) {
-//            System.out.print("160-" + tracking+++",");
-//        }
-
-
-        for (int i = 0; i < 10; i++) {
-            String trackings = "160-" + tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking++ + ",160-";
-            trackings += tracking + "";
-
-            System.out.println("Searching:" + trackings);
-            // 要打开的网址
-//            URI url = new URI("https://www.51tracking.com/aircargo/cn/" + trackings);
-            URI url = new URI("https://www.track123.com/cn/track?trackNos=" + trackings);
-            // 检查系统是否支持 Desktop 类
-            if (Desktop.isDesktopSupported()) {
-                Desktop desktop = Desktop.getDesktop();
-                desktop.browse(url);
-                System.out.println("已在默认浏览器中打开 URL。");
-            } else {
-                System.out.println("当前系统不支持 Desktop API。");
-            }
-            Thread.sleep(1000);
-            tracking++;
-        }
+        new AwbExample().check160();
+//        new AwbExample().check988();
+//        new AwbExample().check369();
 
 
 //        try {
@@ -141,7 +65,7 @@ public class AwbExample {
 //                    }
 ////                    }
 //                }
-//                Thread.sleep(800);
+//                Thread.sleep(waitingTime);
 //                tracking++;
 //            }
 //            writer.close();
@@ -153,4 +77,201 @@ public class AwbExample {
     }
 
 
+    // 国泰航空
+    private void check160() throws URISyntaxException, IOException, InterruptedException {
+//        long tracking = 93192961L;//yvr -> hk
+        long tracking = 86826760L;//LAX -> hk
+        for (int i = 0; i < 20; i++) {
+            String trackings = "160-" + tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking++ + ",160-";
+            trackings += tracking + "";
+
+            // 要打开的网址
+//            URI url = new URI("https://www.51tracking.com/aircargo/cn/" + trackings); TODO remove this
+            URI url = new URI("https://www.track123.com/cn/track?trackNos=" + trackings);
+            // 检查系统是否支持 Desktop 类
+            if (Desktop.isDesktopSupported()) {
+                Desktop desktop = Desktop.getDesktop();
+                desktop.browse(url);
+                System.out.println("已在默认浏览器中打开 URL。");
+            } else {
+                System.out.println("当前系统不支持 Desktop API。");
+            }
+            Thread.sleep(waitingTime);
+//            System.out.println("https://www.track123.com/cn/track?trackNos=" + trackings);
+
+            tracking++;
+        }
+
+
+    }
+
+    // 韩亚航空 lax -> hk
+    private void check988() throws IOException, InterruptedException, URISyntaxException {
+        long tracking = 89197082L;//1月
+        for (int i = 0; i < 20; i++) {
+            String trackings = "988-" + tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking++ + ",988-";
+            trackings += tracking + "";
+
+            // 要打开的网址
+//            URI url = new URI("https://www.51tracking.com/aircargo/cn/" + trackings); TODO remove this
+            URI url = new URI("https://www.track123.com/cn/track?trackNos=" + trackings);
+            // 检查系统是否支持 Desktop 类
+            if (Desktop.isDesktopSupported()) {
+                Desktop desktop = Desktop.getDesktop();
+                desktop.browse(url);
+                System.out.println("已在默认浏览器中打开 URL。");
+            } else {
+                System.out.println("当前系统不支持 Desktop API。");
+            }
+            Thread.sleep(waitingTime);
+
+//            System.out.println("https://www.track123.com/cn/track?trackNos=" + trackings);
+
+            tracking++;
+        }
+
+
+    }
+
+
+    // 美国阿特拉斯航空公司 yvr -> hk
+    private void check369() throws URISyntaxException, IOException, InterruptedException {
+        long tracking = 92655371L;
+        for (int i = 0; i < 20; i++) {
+            String trackings = "369-" + tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking++ + ",369-";
+            trackings += tracking + "";
+
+            // 要打开的网址
+//            URI url = new URI("https://www.51tracking.com/aircargo/cn/" + trackings); TODO remove this
+            URI url = new URI("https://www.track123.com/cn/track?trackNos=" + trackings);
+            // 检查系统是否支持 Desktop 类
+            if (Desktop.isDesktopSupported()) {
+                Desktop desktop = Desktop.getDesktop();
+                desktop.browse(url);
+                System.out.println("已在默认浏览器中打开 URL。");
+            } else {
+                System.out.println("当前系统不支持 Desktop API。");
+            }
+            Thread.sleep(waitingTime);
+//            System.out.println("https://www.track123.com/cn/track?trackNos=" + trackings);
+
+            tracking++;
+        }
+
+
+    }
 }
