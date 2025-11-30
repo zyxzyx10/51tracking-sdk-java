@@ -79,12 +79,12 @@ public class AwbExample {
 
     // 国泰航空
     private void check160() throws URISyntaxException, IOException, InterruptedException {
-//        int tracking = 93192961L;//yvr -> hk
-//        int tracking = 86826760L;//LAX -> hk
-//        int tracking = 93192934L;//加拿大，3月
+//        int tracking = 93192961;//yvr -> hk
+//        int tracking = 86826760;//LAX -> hk
+//        int tracking = 93192934;//加拿大，3月
 //        int tracking = 92412000;//加拿大，8月
 //        int tracking = 93197720;//10月，温哥华到香港
-        int tracking = 93190799;
+        int tracking = 93191999;
 
         for (int i = 0; i < 30; i++) {// 800 个一轮
             String trackings = "160-" + tracking++ + ",160-";
