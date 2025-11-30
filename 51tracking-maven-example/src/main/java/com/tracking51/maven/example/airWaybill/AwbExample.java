@@ -79,9 +79,14 @@ public class AwbExample {
 
     // 国泰航空
     private void check160() throws URISyntaxException, IOException, InterruptedException {
-//        long tracking = 93192961L;//yvr -> hk
-        long tracking = 86826760L;//LAX -> hk
-        for (int i = 0; i < 20; i++) {
+//        int tracking = 93192961L;//yvr -> hk
+//        int tracking = 86826760L;//LAX -> hk
+//        int tracking = 93192934L;//加拿大，3月
+//        int tracking = 92412000;//加拿大，8月
+//        int tracking = 93197720;//10月，温哥华到香港
+        int tracking = 93190799;
+
+        for (int i = 0; i < 30; i++) {// 800 个一轮
             String trackings = "160-" + tracking++ + ",160-";
             trackings += tracking++ + ",160-";
             trackings += tracking++ + ",160-";
@@ -141,12 +146,13 @@ public class AwbExample {
         }
 
 
+        System.out.println("下一个号码。" + tracking);
     }
 
     // 韩亚航空 lax -> hk
     private void check988() throws IOException, InterruptedException, URISyntaxException {
         long tracking = 89197082L;//1月
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 20; i++) {// 800 个一轮
             String trackings = "988-" + tracking++ + ",988-";
             trackings += tracking++ + ",988-";
             trackings += tracking++ + ",988-";
@@ -212,8 +218,15 @@ public class AwbExample {
 
     // 美国阿特拉斯航空公司 yvr -> hk
     private void check369() throws URISyntaxException, IOException, InterruptedException {
-        long tracking = 92655371L;
-        for (int i = 0; i < 20; i++) {
+//        long tracking = 92655371L;
+//        long tracking = 92650272L;//12月
+//        long tracking = 92653632L;//2025 7月
+//        long tracking = 94542103L;//2025 7月
+
+//        long tracking = 94544400L;//2025 7月
+        long tracking = 92654600L;//2025 7月
+
+        for (int i = 0; i < 20; i++) {// 800 个一轮
             String trackings = "369-" + tracking++ + ",369-";
             trackings += tracking++ + ",369-";
             trackings += tracking++ + ",369-";
