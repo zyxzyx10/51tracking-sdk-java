@@ -13,7 +13,10 @@ public class AwbExample {
 
     @SneakyThrows
     public static void main(String[] args) {
-        new AwbExample().check160();
+//        new AwbExample().checkAC();//加航官网
+//        new AwbExample().check160();//国泰航空
+        new AwbExample().check828();///香港航空
+//        new AwbExample().check014();//加拿大航空
 //        new AwbExample().check988();
 //        new AwbExample().check369();
 
@@ -76,6 +79,79 @@ public class AwbExample {
 //        }
     }
 
+    private void checkAC() throws Exception {
+        String tracking = "23939800";
+        String prefix = "014-";         // Air Canada 前缀
+
+        for (int batch = 0; batch < 50; batch++) {
+            String awb = prefix + tracking;
+            URI url = new URI("https://www.aircanada.com/cargo/tracking?awbnb=" + awb);
+            if (Desktop.isDesktopSupported()) {
+                Desktop.getDesktop().browse(url);
+                System.out.println("打开: " + url);
+            } else {
+                System.out.println("系统不支持 Desktop API");
+            }
+            tracking = incrementString(tracking);
+            Thread.sleep(3000);
+        }
+        System.out.println("全部结束，最后号段: " + tracking);
+    }
+
+
+    // 加拿大航空
+    private void check014() throws Exception {
+        String tracking = "23939080";   // 初始号段
+        int batchSize = 40;             // 每次生成 40 个
+        String prefix = "014-";         // 航空公司前缀
+
+        for (int batch = 0; batch < 40; batch++) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < batchSize; i++) {
+                // 添加前缀 + 当前号段
+                sb.append(prefix).append(tracking);
+                if (i < batchSize - 1) {
+                    sb.append(",");   // 逗号分隔
+                }
+                // tracking 自增
+                tracking = incrementString(tracking);
+            }
+
+            String trackings = sb.toString();
+            // 访问 URL
+            URI url = new URI("https://www.track123.com/cn/track?trackNos=" + trackings);
+
+            if (Desktop.isDesktopSupported()) {
+                Desktop.getDesktop().browse(url);
+                System.out.println("打开: " + url);
+            } else {
+                System.out.println("系统不支持 Desktop API");
+            }
+            Thread.sleep(waitingTime);
+        }
+        System.out.println("结束，新起始号段 = " + tracking);
+    }
+
+    //香港航空
+    private void check828() throws Exception {
+        String tracking = "18350000";
+        String prefix = "828-";
+
+        for (int batch = 0; batch < 50; batch++) {
+            String awb = prefix + tracking;
+            URI url = new URI("https://parcelsapp.com/en/tracking/" + awb);
+            if (Desktop.isDesktopSupported()) {
+                Desktop.getDesktop().browse(url);
+                System.out.println("打开: " + url);
+            } else {
+                System.out.println("系统不支持 Desktop API");
+            }
+            tracking = incrementString(tracking);
+            Thread.sleep(3000);
+        }
+        System.out.println("全部结束，最后号段: " + tracking);
+    }
+
 
     // 国泰航空
     private void check160() throws URISyntaxException, IOException, InterruptedException {
@@ -84,9 +160,10 @@ public class AwbExample {
 //        int tracking = 93192934;//加拿大，3月
 //        int tracking = 92412000;//加拿大，8月
 //        int tracking = 93197720;//10月，温哥华到香港
-        int tracking = 93191999;
+//        int tracking = 93203599;
+        int tracking = 93794000;
 
-        for (int i = 0; i < 30; i++) {// 800 个一轮
+        for (int i = 0; i < 50; i++) {
             String trackings = "160-" + tracking++ + ",160-";
             trackings += tracking++ + ",160-";
             trackings += tracking++ + ",160-";
@@ -144,8 +221,6 @@ public class AwbExample {
 
             tracking++;
         }
-
-
         System.out.println("下一个号码。" + tracking);
     }
 
@@ -284,7 +359,15 @@ public class AwbExample {
 
             tracking++;
         }
+    }
 
 
+    private String incrementString(String input) {
+        int length = input.length();               // 原字符串长度
+        int num = Integer.parseInt(input);         // 转成数字
+        num++;                                     // 递增
+
+        // 用格式化补零
+        return String.format("%0" + length + "d", num);
     }
 }
